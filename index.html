@@ -1,47 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water - Help Bring Clean Water</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff7e1;
+    }
+    
+    header {
+      background-color: #fff7e1;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid #ddd;
+    }
+    header img {
+      height: 50px;
+    }
+
+    .hero {
+      /* HIGHLIGHT: Replace 'placeholder-image.jpg' with your hero image */
+      background: url('placeholder-image.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #77a8bb;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #5d8896;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .info-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .info-section p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background-color: #fff7e1;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <header>
+    <!-- HIGHLIGHT: Insert the full Charity: Water logo below -->
+    <img src="Hero Image.jpg" alt="Charity Water Logo">
+  </header>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Help Bring Clean Water to Families Worldwide</h2>
+      <p>Each donation helps build wells that provide safe, lasting water for families around the world. Experience your impact through photos, stories, and interviews from the communities you support.</p>
+      <div class="btn-container">
+        <a href="#donate" class="btn">Fund a Well Today</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <section class="info-section">
+    <p>Your donation transforms lives by giving communities access to clean water. Together, we can end the water crisis and bring hope to families worldwide.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 charity: water. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
