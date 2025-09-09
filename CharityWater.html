@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Water Landing Page</title>
+  <style>
+    /* Brand colors and fonts */
+    :root {
+      --primary-color: #77a8bb;
+      --secondary-color: #fff7e1;
+      --text-color: #1a1a1a;
+      --background-color: #fff7e1;
+      --font-primary: 'Proxima Nova', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-primary);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Header */
+    header {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      height: 180px;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 40px;
+    }
+
+    .hero img.hero-image {
+      max-width: 90%;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      max-width: 900px;
+    }
+
+    .hero .cta-button {
+      background-color: var(--primary-color);
+      color: #1a1a1a;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero .cta-button:hover {
+      background-color: #5d8fa1;
+    }
+
+    /* Sections */
+    .about, .impact, .donate {
+      text-align: center;
+      padding: 80px 40px;
+      font-size: 1.3rem;
+    }
+
+    .about { background-color: white; }
+    .impact { background-color: var(--secondary-color); }
+    .donate { background-color: white; }
+
+    .about h2, .impact h2, .donate h2 {
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .donate button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .donate button:hover {
+      background-color: #00332d;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero img.hero-image { max-width: 100%; }
+      nav a { font-size: 1rem; }
+    }
+
+    /* 🔹 Larger laptop/desktop view - change text & image sizes here */
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 22px; }
+      .about h2, .impact h2, .donate h2 { font-size: 36px; }
+      .about p, .impact p, .donate p { font-size: 22px; }
+      .hero .cta-button, .donate button {
+        font-size: 22px;
+        padding: 10px 10px;
+      }
+
+      /* 🔹 Increase image sizes for desktop */
+      .hero img.hero-image {
+        max-width: 3000px; /* Adjust width for hero image */
+      }
+      .logo img {
+        height: 300px; /* Increase logo size */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="img/charitywater_logo_horizontal_BlackText.png" alt="Nonprofit Logo">
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#donate">Donate</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-image" src="img/Hero Image.png" alt="Hero Image">
+    <h1>Help Bring Clean Water to Families Worldwide</h1>
+    <p>Each donation helps build wells that provide safe, lasting water for families around the world.
+      Experience your impact through photos, stories, and interviews from the communities you support.
+    </p>
+    <button class="cta-button">Fund a Well Today</button>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We are dedicated to bringing clean and safe drinking water to people in developing countries. Our mission is to transform lives by providing sustainable water solutions.</p>
+  </section>
+
+  <!-- Impact -->
+  <section id="impact" class="impact">
+    <h2>Our Impact</h2>
+    <p>With your support, we have funded thousands of water projects, bringing clean water to millions of people. Together, we are making a difference.</p>
+  </section>
+
+  <!-- Donate -->
+  <section id="donate" class="donate">
+    <h2>Your Gift Can Change Lives</h2>
+    <p>Your contribution helps us continue our mission. Every dollar counts in providing clean water to those in need.</p>
+    <button>Fund a Well Today</button>
+  </section>
+
+</body>
+</html>
