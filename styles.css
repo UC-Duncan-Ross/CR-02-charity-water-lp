@@ -5,12 +5,15 @@
   --text-color: #1a1a1a; /* Updated text color */
   --background-color: #fff7e1;
   --font-primary: 'Proxima Nova', sans-serif;
-  --hero-image-width: 90%; /* Default width for the hero image */
+  --hero-image-width: 110%; /* Default width for the hero image */
   --hero-image-height: auto; /* Default height for the hero image */
+  --cta-button-padding: 60px 120px; /* Default padding for the CTA button */
+  --cta-button-font-size: 30px; /* Default font size for the CTA button */
 }
 
 body {
-  margin: 0;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
   font-family: var(--font-primary);
   background-color: var(--secondary-color); /* Changed background color */
   color: var(--text-color); /* Apply text color globally */
@@ -25,8 +28,8 @@ body, h1, h2, p, nav a, .cta-button, .donate button {
 
 /* Header */
 header {
-  /* Adjust padding to make the search bar area smaller */
-  padding: 2px 10px; /* Reduced padding */
+  margin: 0; /* Remove any margin */
+  padding: 5px 10px; /* Further reduce padding to eliminate more empty space */
   background-color: #fff7e1;
   display: flex;
   justify-content: center;
@@ -46,9 +49,9 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--text-color);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 28px; /* Use pixels for consistent measurement */
 }
 
 nav a:hover {
@@ -57,13 +60,13 @@ nav a:hover {
 
 /* Hero */
 .hero {
-  margin-top: 20px; /* Add space below the company logo */
+  margin-top: 0; /* Ensure no space above the hero section */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 80px 40px;
+  padding: 20px 10px; /* Further reduce padding in the hero section */
   border: 5px solid black; /* Add a black border around each section */
   border-radius: 5px; /* Make the corners slightly rounded */
 }
@@ -76,26 +79,32 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 56px; /* Use pixels for consistent measurement */
   margin: 0;
 }
 
 .hero p {
-  font-size: 1.5rem;
+  font-size: 24px; /* Use pixels for consistent measurement */
   margin-top: 15px;
   margin-bottom: 30px;
   max-width: 900px;
 }
 
 .hero .cta-button {
+  margin: 40px auto; /* Center the button equally between the top and the hero border */
+  display: block; /* Center the button horizontally */
+  width: 500px; /* Increase width to make the button wider */
+  max-width: 400px; /* Set a maximum width to prevent it from becoming too large */
+  padding: 10px 20px; /* Reduce padding to make the button less tall */
+  font-size: var(--cta-button-font-size); /* Use CSS variable for font size */
   background-color: var(--primary-color);
   color: #1a1a1a;
   border: none;
-  padding: 20px 40px;
-  font-size: 1.5rem;
-  border-radius: 8px;
+  border-radius: 20px; /* Slightly round the corners */
   cursor: pointer;
   transition: background 0.3s ease;
+  position: relative; /* Ensure it doesn't block the hero image */
+  z-index: 1; /* Place it above other elements */
 }
 
 .hero .cta-button:hover {
@@ -107,26 +116,47 @@ nav a:hover {
   display: flex; /* Align text and images side by side */
   justify-content: space-between;
   align-items: center;
-  text-align: left; /* Align body text to the left */
   padding: 80px 40px;
-  font-size: 1.3rem;
-  border: 5px solid black; /* Add a black border around each section */
-  border-radius: 5px; /* Make the corners slightly rounded */
+  font-size: 22px; /* Ensure consistent text size */
+}
+
+.about .text-box, .impact .text-box, .donate .text-box {
+  width: 50%; /* Take up the left half of the section */
+  border: 5px solid black; /* Add a black border */
+  padding: 20px; /* Add padding inside the box */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.donate .donation-options {
+  width: 50%; /* Match the width of the text box */
+  height: auto; /* Ensure the height adjusts to content */
+  border: 5px solid var(--primary-color); /* Add a blue border */
+  padding: 20px; /* Add padding inside the box */
+  box-sizing: border-box; /* Include padding and border in width */
+  margin-left: auto; /* Align the box to the right */
+}
+
+.donate .donation-options label {
+  display: inline-block; /* Ensure each option stays on one line */
+  margin-right: 15px; /* Add spacing between options */
 }
 
 .about { background-color: #fff7e1; }
-.impact { background-color: var(--secondary-color); }
+.impact { background-color: var(#fff7e1); }
 .donate { background-color: #fff7e1; }
 
 .about h2, .impact h2, .donate h2 {
   text-align: center; /* Center the headers */
-  color: #1a1a1a; /* Ensure headers are black */
-  margin-bottom: 25px;
-  font-size: 2.2rem;
+  margin-bottom: 15px; /* Add spacing below the headers */
+}
+
+.about h2 {
+  text-align: center; /* Center the "About Us" header */
 }
 
 .about p, .impact p, .donate p, .cta-button {
   color: #1a1a1a; /* Ensure all body text is black */
+  font-size: 22px; /* Use pixels for consistent measurement */
 }
 
 .about img, .impact img {
@@ -137,7 +167,7 @@ nav a:hover {
 
 .donate button {
   background-color: var(--primary-color);
-  color: #fff7e1;
+  color: #1a1a1a;
   border: none;
   padding: 20px 40px;
   font-size: 1.5rem;
@@ -150,12 +180,33 @@ nav a:hover {
   background-color: #00332d;
 }
 
+/* Tagline */
+.tagline {
+  text-align: center;
+  font-size: 18px; /* Use pixels for consistent measurement */
+  color: var(--text-color); /* Match the primary text color */
+  margin: 10px 0; /* Add spacing around the tagline */
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero img.hero-image { max-width: 100%; }
-  nav a { font-size: 1rem; }
+  .tagline {
+    display: none; /* Hide the tagline on mobile */
+  }
+
+  .about .text-box, .impact .text-box, .donate .text-box {
+    width: 100%; /* Full width for text boxes */
+    margin: 0 auto; /* Center the boxes */
+  }
+
+  .donate .donation-options {
+    width: 100%; /* Full width for donation options */
+    margin: 20px auto 0; /* Add spacing above donation options */
+  }
+
+  .donate {
+    flex-direction: column; /* Stack text and donation options vertically */
+  }
 }
 
 /* 🔹 Larger laptop/desktop view - change text & image sizes here */
@@ -175,5 +226,10 @@ nav a:hover {
   }
   .logo img {
     height: 300px; /* Increase logo size */
+  }
+
+  .hero .cta-button {
+    padding: 60px 100px; /* Increase padding for larger size on laptops */
+    font-size: 32px; /* Increase font size for better visibility */
   }
 }
