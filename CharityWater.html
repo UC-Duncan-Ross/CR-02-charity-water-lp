@@ -28,7 +28,8 @@
     <p>Each donation helps build wells that provide safe, lasting water for families around the world.
       Experience your impact through photos, stories, and interviews from the communities you support.
     </p>
-    <button class="cta-button">Fund a Well Today</button>
+    <!-- Call-to-Action Button -->
+    <button class="cta-button" onclick="location.href='#donate-options'">Fund a Well Today</button>
   </section>
 
   <!-- About -->
@@ -47,7 +48,31 @@
   <section id="donate" class="donate">
     <h2>Your Gift Can Change Lives</h2>
     <p>Your contribution helps us continue our mission. Every dollar counts in providing clean water to those in need.</p>
-    <button>Fund a Well Today</button>
+    <!-- Unique Donation Menu -->
+    <form id="donate-options" class="donation-options">
+      <label>
+        <input type="radio" name="donation" value="1"> $1
+      </label>
+      <label>
+        <input type="radio" name="donation" value="5"> $5
+      </label>
+      <label>
+        <input type="radio" name="donation" value="10"> $10
+      </label>
+      <label>
+        <input type="radio" name="donation" value="15"> $15
+      </label>
+      <label>
+        <input type="radio" name="donation" value="20"> $20
+      </label>
+      <label>
+        <input type="radio" name="donation" value="25"> $25
+      </label>
+      <label>
+        Custom Amount: <input type="number" name="donation" placeholder="Enter amount">
+      </label>
+      <button type="submit">Donate</button>
+    </form>
   </section>
 
 </body>
