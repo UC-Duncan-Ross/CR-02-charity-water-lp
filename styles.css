@@ -42,8 +42,8 @@ header {
 }
 
 .logo img {
-  width: auto; /* Use the image's original width */
-  height: auto; /* Use the image's original height */
+  width: 150px; /* Resize the logo to be smaller */
+  height: auto; /* Maintain aspect ratio */
 }
 
 nav {
@@ -151,17 +151,22 @@ nav a:hover {
 }
 
 .donate .donation-options {
-  width: 50%; /* Match the width of the text box */
-  height: auto; /* Ensure the height adjusts to content */
-  border: none; /* Remove the black border around donation options */
-  padding: 20px; /* Add padding inside the box */
-  box-sizing: border-box; /* Include padding and border in width */
-  margin-left: auto; /* Align the box to the right */
+  display: block; /* Restore block layout */
+  width: 50%; /* Restore original width */
+  margin-left: auto; /* Align to the right */
+  padding: 20px; /* Restore padding */
 }
 
 .donate .donation-options label {
-  display: inline-block; /* Ensure each option stays on one line */
-  margin-right: 15px; /* Add spacing between options */
+  display: inline-block; /* Restore inline layout */
+  margin-right: 15px; /* Restore spacing between options */
+  width: auto; /* Remove fixed width */
+  text-align: left; /* Align text to the left */
+}
+
+.donate .donation-options input[type="number"] {
+  width: 100%; /* Keep custom amount full width */
+  margin-top: 10px; /* Add spacing above custom input */
 }
 
 .about { background-color: #fff7e1; }
@@ -246,30 +251,57 @@ nav a:hover {
 
 /* Tagline */
 .tagline {
-  text-align: center;
-  font-size: 18px; /* Use pixels for consistent measurement */
-  color: var(--text-color); /* Match the primary text color */
-  margin: 10px 0; /* Add spacing around the tagline */
+  display: none; /* Remove the tagline text */
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-  .tagline {
-    display: none; /* Hide the tagline on mobile */
+  .hero {
+    padding: 15px; /* Slightly reduce padding for smaller screens */
+  }
+
+  .hero h1 {
+    font-size: 32px; /* Adjust font size for better readability */
+  }
+
+  .hero p {
+    font-size: 20px; /* Adjust paragraph font size */
+  }
+
+  .hero .cta-button {
+    width: 90%; /* Make the button responsive */
+    font-size: 20px; /* Adjust button font size */
+    padding: 12px; /* Adjust padding */
+  }
+
+  .about, .impact, .donate {
+    padding: 30px 15px; /* Adjust section padding */
   }
 
   .about .text-box, .impact .text-box, .donate .text-box {
-    width: 100%; /* Full width for text boxes */
-    margin: 0 auto; /* Center the boxes */
+    width: 100%; /* Make text boxes full width */
+    margin-bottom: 20px; /* Add spacing between text and image */
   }
 
-  .donate .donation-options {
-    width: 100%; /* Full width for donation options */
-    margin: 20px auto 0; /* Add spacing above donation options */
+  .about img, .impact img {
+    width: 100%; /* Make images full width */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .donate {
-    flex-direction: column; /* Stack text and donation options vertically */
+  .donation-options {
+    width: 100%; /* Make donation options full width */
+    margin: 0 auto; /* Center the options */
+  }
+
+  nav {
+    flex-direction: row; /* Ensure navigation links are in a row */
+    justify-content: center; /* Center the links */
+    gap: 10px; /* Reduce spacing between links */
+  }
+
+  nav a {
+    font-size: 18px; /* Reduce font size for smaller screens */
+    padding: 5px; /* Add padding for better spacing */
   }
 }
 
