@@ -29,7 +29,7 @@ body, h1, h2, p, nav a, .cta-button, .donate button {
 /* Header */
 header {
   margin: 0; /* Remove any margin */
-  padding: 5px 10px; /* Further reduce padding to eliminate more empty space */
+  padding: 0px; /* Further reduce padding to eliminate more empty space */
   background-color: #fff7e1;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ header {
 }
 
 .logo img {
-  height: 180px;
+  height: 100px;
 }
 
 nav {
@@ -222,7 +222,7 @@ nav a:hover {
 
   /* 🔹 Increase image sizes for desktop */
   .hero img.hero-image {
-    max-width: 3000px; /* Adjust width for hero image */
+    max-width: 100%; /* Adjust width for hero image */
   }
   .logo img {
     height: 300px; /* Increase logo size */
