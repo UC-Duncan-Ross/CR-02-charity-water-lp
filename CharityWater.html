@@ -12,7 +12,7 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="img/charitywater_logo_horizontal_BlackText.png" alt="Nonprofit Logo">
+      <img src="img/charitywater_logo_horizontal_BlackText-new.png" alt="Nonprofit Logo">
     </div>
     <p class="tagline">Where every dollar means a cup of clean water</p>
     <nav>
@@ -37,23 +37,25 @@
   <section id="about" class="about">
     <div class="text-box">
       <h2>About Us</h2>
-      <p>We are dedicated to bringing clean and safe drinking water to people in developing countries. Our mission is to transform lives by providing sustainable water solutions.</p>
+      <p>At Charity Water we are dedicated to bringing clean and safe drinking water to people all across the globe. Our mission is to make sure everyone has easy access clear drinking water via wells funded by people like you.</p>
     </div>
+    <img src="img/About us.jpg" alt="About Us Image"> <!-- Image on the right side -->
   </section>
 
   <!-- Impact -->
   <section id="impact" class="impact">
     <div class="text-box">
       <h2>Our Impact</h2>
-      <p>With your support, we have funded thousands of water projects, bringing clean water to millions of people. Together, we are making a difference.</p>
+      <p>Since 2006 we have been able to complete over 60 projects in areas all across the globe. With your support, we will be able to build more wells in areas where water access may be difficult to obtain. By donating even a dollar you're helping us pay for the resources needed to build a new well for a community in need.</p>
     </div>
+    <img src="img/Impact.jpg" alt="Our Impact Image"> <!-- Image on the right side -->
   </section>
 
   <!-- Donate -->
   <section id="donate" class="donate">
     <div class="text-box">
-      <h2>Your Gift Can Change Lives</h2>
-      <p>Your contribution helps us continue our mission. Every dollar counts in providing clean water to those in need.</p>
+      <h2>Every dollar counts</h2>
+      <p>With donations from people like you, we can continue to combat the water crisis and bring clean water to those in need. Every dollar you donate goes directly to funding a well to provide clean water for families all accross the globe. Thank you for considering charity water and we can't wait to see the impact we can make together.</p>
     </div>
     <!-- Unique Donation Menu -->
     <form id="donate-options" class="donation-options">
@@ -81,6 +83,49 @@
       <button type="submit">Donate</button>
     </form>
   </section>
+
+  <script>
+    document.querySelector(".donation-options").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      // Get the selected donation amount or custom amount
+      const selectedDonation = document.querySelector("input[name='donation']:checked");
+      const customDonation = document.querySelector("input[name='donation'][type='number']").value;
+      const donationAmount = selectedDonation ? selectedDonation.value : customDonation;
+
+      // Ensure the custom amount is treated as a dollar amount
+      const formattedDonation = `$${donationAmount}`;
+
+      // Convert numbers to words for years of water (up to 100)
+      const numberToWords = (num) => {
+        const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three", "twenty-four", "twenty-five", "twenty-six", "twenty-seven", "twenty-eight", "twenty-nine", "thirty", "thirty-one", "thirty-two", "thirty-three", "thirty-four", "thirty-five", "thirty-six", "thirty-seven", "thirty-eight", "thirty-nine", "forty", "forty-one", "forty-two", "forty-three", "forty-four", "forty-five", "forty-six", "forty-seven", "forty-eight", "forty-nine", "fifty", "fifty-one", "fifty-two", "fifty-three", "fifty-four", "fifty-five", "fifty-six", "fifty-seven", "fifty-eight", "fifty-nine", "sixty", "sixty-one", "sixty-two", "sixty-three", "sixty-four", "sixty-five", "sixty-six", "sixty-seven", "sixty-eight", "sixty-nine", "seventy", "seventy-one", "seventy-two", "seventy-three", "seventy-four", "seventy-five", "seventy-six", "seventy-seven", "seventy-eight", "seventy-nine", "eighty", "eighty-one", "eighty-two", "eighty-three", "eighty-four", "eighty-five", "eighty-six", "eighty-seven", "eighty-eight", "eighty-nine", "ninety", "ninety-one", "ninety-two", "ninety-three", "ninety-four", "ninety-five", "ninety-six", "ninety-seven", "ninety-eight", "ninety-nine", "one hundred"];
+        return num <= 100 ? words[num] : num; // Use words for numbers 1-100, otherwise use the number
+      };
+
+      const yearsOfWater = donationAmount == 1 ? "one year" : `${numberToWords(donationAmount)} years`;
+
+      // Create and display the thank-you message
+      const thankYouMessage = document.createElement("div");
+      thankYouMessage.textContent = `Thank you for your donation! Your contribution of ${formattedDonation} will provide ${yearsOfWater} of clean water.`;
+      thankYouMessage.style.position = "fixed";
+      thankYouMessage.style.top = "50%";
+      thankYouMessage.style.left = "50%";
+      thankYouMessage.style.transform = "translate(-50%, -50%)";
+      thankYouMessage.style.background = "#fff";
+      thankYouMessage.style.padding = "20px";
+      thankYouMessage.style.border = "2px solid #77a8bb";
+      thankYouMessage.style.borderRadius = "10px";
+      thankYouMessage.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+      thankYouMessage.style.zIndex = "1000";
+
+      document.body.appendChild(thankYouMessage);
+
+      // Remove the message after 5 seconds
+      setTimeout(() => {
+        document.body.removeChild(thankYouMessage);
+      }, 5000);
+    });
+  </script>
 
 </body>
 </html>

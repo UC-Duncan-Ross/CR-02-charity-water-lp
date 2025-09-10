@@ -5,11 +5,12 @@
   --text-color: #1a1a1a; /* Updated text color */
   --background-color: #fff7e1;
   --font-primary: 'Proxima Nova', sans-serif;
-  --hero-image-width: 110%; /* Default width for the hero image */
+  --hero-image-width: 100%; /* Default width for the hero image */
   --hero-image-height: auto; /* Default height for the hero image */
   --cta-button-padding: 60px 120px; /* Default padding for the CTA button */
   --cta-button-font-size: 30px; /* Default font size for the CTA button */
 }
+
 
 body {
   margin: 0; /* Remove default margin */
@@ -19,6 +20,9 @@ body {
   color: var(--text-color); /* Apply text color globally */
   line-height: 1.6;
   font-size: 16px;
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Ensure all text uses the primary text color */
@@ -38,13 +42,15 @@ header {
 }
 
 .logo img {
-  height: 100px;
+  width: auto; /* Use the image's original width */
+  height: auto; /* Use the image's original height */
 }
 
 nav {
   margin-left: auto;
   display: flex;
   gap: 25px;
+  padding-right: 20px; /* Add padding to the right of the navigation bar */
 }
 
 nav a {
@@ -67,14 +73,14 @@ nav a:hover {
   align-items: center;
   text-align: center;
   padding: 20px 10px; /* Further reduce padding in the hero section */
-  border: 5px solid black; /* Add a black border around each section */
+  border: none; /* Remove the black border around the hero section */
   border-radius: 5px; /* Make the corners slightly rounded */
 }
 
 .hero img.hero-image {
   width: var(--hero-image-width); /* Use CSS variable for width */
   height: var(--hero-image-height); /* Use CSS variable for height */
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border-radius: 10px;
 }
 
@@ -86,7 +92,7 @@ nav a:hover {
 .hero p {
   font-size: 24px; /* Use pixels for consistent measurement */
   margin-top: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   max-width: 900px;
 }
 
@@ -116,13 +122,30 @@ nav a:hover {
   display: flex; /* Align text and images side by side */
   justify-content: space-between;
   align-items: center;
-  padding: 80px 40px;
+  padding: 40px 20px; /* Halve the space between each section */
   font-size: 22px; /* Ensure consistent text size */
+}
+
+.about, .impact {
+  display: flex; /* Align text and image side by side */
+  flex-direction: row; /* Ensure text is on the left and image is on the right */
+  justify-content: space-between; /* Space out text and image */
+  align-items: center; /* Center content vertically */
+}
+
+.about .text-box, .impact .text-box {
+  width: 50%; /* Text occupies the left half */
+}
+
+.about img, .impact img {
+  width: 50%; /* Image occupies the right half */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Slightly round the corners */
 }
 
 .about .text-box, .impact .text-box, .donate .text-box {
   width: 50%; /* Take up the left half of the section */
-  border: 5px solid black; /* Add a black border */
+  border: none; /* Remove the black border around text boxes */
   padding: 20px; /* Add padding inside the box */
   box-sizing: border-box; /* Include padding and border in width */
 }
@@ -130,7 +153,7 @@ nav a:hover {
 .donate .donation-options {
   width: 50%; /* Match the width of the text box */
   height: auto; /* Ensure the height adjusts to content */
-  border: 5px solid var(--primary-color); /* Add a blue border */
+  border: none; /* Remove the black border around donation options */
   padding: 20px; /* Add padding inside the box */
   box-sizing: border-box; /* Include padding and border in width */
   margin-left: auto; /* Align the box to the right */
@@ -174,10 +197,51 @@ nav a:hover {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
+  position: relative; /* Ensure the button is positioned for the animation */
+  overflow: hidden; /* Prevent the animation from spilling outside the button */
 }
 
 .donate button:hover {
   background-color: #00332d;
+}
+
+.donate button:active::after {
+  content: ""; /* Add a pseudo-element for the rain */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px; /* Thin raindrop */
+  height: 10px; /* Length of the raindrop */
+  background: rgba(119, 168, 187, 0.7); /* Light blue raindrop color */
+  transform: translateX(-50%);
+  animation: rain 0.6s linear infinite; /* Trigger the rain animation */
+}
+
+@keyframes rain {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+.donate button:active .raindrop {
+  animation: rain 10s linear infinite; /* Trigger the rain animation for 10 seconds */
+}
+
+/* Add multiple raindrops */
+.raindrop {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Start from the bottom of the button */
+  left: 50%;
+  width: 2px; /* Thin raindrop */
+  height: 10px; /* Length of the raindrop */
+  background: rgba(119, 168, 187, 0.7); /* Light blue raindrop color */
+  transform: translateX(-50%);
 }
 
 /* Tagline */
@@ -210,7 +274,7 @@ nav a:hover {
 }
 
 /* 🔹 Larger laptop/desktop view - change text & image sizes here */
-@media (min-width: 1024px) {
+@media (min-width: 325px) {
   .hero h1 { font-size: 36px; }
   .hero p { font-size: 22px; }
   .about h2, .impact h2, .donate h2 { font-size: 36px; }
@@ -222,14 +286,14 @@ nav a:hover {
 
   /* 🔹 Increase image sizes for desktop */
   .hero img.hero-image {
-    max-width: 100%; /* Adjust width for hero image */
+    max-width: 80%; /* Adjust width for hero image */
   }
   .logo img {
-    height: 300px; /* Increase logo size */
+    height: auto; /* Increase logo size */
   }
 
   .hero .cta-button {
-    padding: 60px 100px; /* Increase padding for larger size on laptops */
-    font-size: 32px; /* Increase font size for better visibility */
+    padding: 20px 25px; /* Increase padding for larger size on laptops */
+    font-size: 36px; /* Increase font size for better visibility */
   }
 }
